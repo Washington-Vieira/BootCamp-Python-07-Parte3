@@ -1,0 +1,196 @@
+2024-10-07T22:55:42.815700-0300 INFO Chamando função 'soma' com args (2, 3) e kwargs {} utils_log.py
+2024-10-07T22:55:42.816706-0300 INFO Função 'soma' retornou 5 utils_log.py
+2024-10-07T22:55:42.816706-0300 INFO Chamando função 'soma' com args (2, 3) e kwargs {} utils_log.py
+2024-10-07T22:55:42.816706-0300 INFO Função 'soma' retornou 5 utils_log.py
+2024-10-07T23:04:28.667600-0300 INFO Chamando função 'pipeline_calcular_kpi_de_vendas_consolidado' com args ('data', ['csv', 'parquet']) e kwargs {} utils_log.py
+2024-10-07T23:04:28.668597-0300 INFO Chamando função 'extrair_dados_e_consolidar' com args ('data',) e kwargs {} utils_log.py
+2024-10-07T23:04:28.855719-0300 INFO Função 'extrair_dados_e_consolidar' retornou             Produto  ...        Data
+0    Notebook Gamer  ...  2023-01-15
+1     Mouse Sem Fio  ...  2023-01-15
+2  Teclado Mecânico  ...  2023-01-15
+3    Notebook Gamer  ...  2023-01-16
+4     Mouse Sem Fio  ...  2023-01-16
+5  Teclado Mecânico  ...  2023-01-16
+6    Notebook Gamer  ...  2023-01-17
+7     Mouse Sem Fio  ...  2023-01-17
+8  Teclado Mecânico  ...  2023-01-17
+
+[9 rows x 5 columns] utils_log.py
+2024-10-07T23:04:28.871921-0300 INFO Chamando função 'calcular_kpi_de_total_de_vendas' com args (            Produto  ...        Data
+0    Notebook Gamer  ...  2023-01-15
+1     Mouse Sem Fio  ...  2023-01-15
+2  Teclado Mecânico  ...  2023-01-15
+3    Notebook Gamer  ...  2023-01-16
+4     Mouse Sem Fio  ...  2023-01-16
+5  Teclado Mecânico  ...  2023-01-16
+6    Notebook Gamer  ...  2023-01-17
+7     Mouse Sem Fio  ...  2023-01-17
+8  Teclado Mecânico  ...  2023-01-17
+
+[9 rows x 5 columns],) e kwargs {} utils_log.py
+2024-10-07T23:04:28.896065-0300 INFO Função 'calcular_kpi_de_total_de_vendas' retornou             Produto  ...  Total
+0    Notebook Gamer  ...   4500
+1     Mouse Sem Fio  ...    300
+2  Teclado Mecânico  ...    500
+3    Notebook Gamer  ...  10500
+4     Mouse Sem Fio  ...    300
+5  Teclado Mecânico  ...    300
+6    Notebook Gamer  ...   3000
+7     Mouse Sem Fio  ...    420
+8  Teclado Mecânico  ...    200
+
+[9 rows x 6 columns] utils_log.py
+2024-10-07T23:04:28.912245-0300 INFO Chamando função 'carregar_dados' com args (            Produto  ...  Total
+0    Notebook Gamer  ...   4500
+1     Mouse Sem Fio  ...    300
+2  Teclado Mecânico  ...    500
+3    Notebook Gamer  ...  10500
+4     Mouse Sem Fio  ...    300
+5  Teclado Mecânico  ...    300
+6    Notebook Gamer  ...   3000
+7     Mouse Sem Fio  ...    420
+8  Teclado Mecânico  ...    200
+
+[9 rows x 6 columns], ['csv', 'parquet']) e kwargs {} utils_log.py
+2024-10-07T23:04:28.966071-0300 ERROR Exceção capturada em 'carregar_dados': Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet. utils_log.py
+Traceback (most recent call last):
+
+  File "C:\Users\Admin Guapo\Desktop\Projeto python\BootCamp-Python-Aula07-Parte3\pipeline.py", line 7, in <module>
+    pipeline_calcular_kpi_de_vendas_consolidado(pasta_argumento,formato_de_saida)
+    │                                           │               └ ['csv', 'parquet']
+    │                                           └ 'data'
+    └ <function pipeline_calcular_kpi_de_vendas_consolidado at 0x0000029D0B5ABB00>
+
+  File "C:\Users\Admin Guapo\Desktop\Projeto python\BootCamp-Python-Aula07-Parte3\utils_log.py", line 27, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {}
+             │     └ ('data', ['csv', 'parquet'])
+             └ <function pipeline_calcular_kpi_de_vendas_consolidado at 0x0000029D0B5A8AE0>
+
+  File "C:\Users\Admin Guapo\Desktop\Projeto python\BootCamp-Python-Aula07-Parte3\etl.py", line 50, in pipeline_calcular_kpi_de_vendas_consolidado
+    carregar_dados(data_frame_calculado, formato_de_saida)
+    │              │                     └ ['csv', 'parquet']
+    │              └             Produto  ...  Total
+    │                0    Notebook Gamer  ...   4500
+    │                1     Mouse Sem Fio  ...    300
+    │                2  Teclado Mecânico  ...    5...
+    └ <function carregar_dados at 0x0000029D0B5A8720>
+
+> File "C:\Users\Admin Guapo\Desktop\Projeto python\BootCamp-Python-Aula07-Parte3\utils_log.py", line 27, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {}
+             │     └ (            Produto  ...  Total
+             │       0    Notebook Gamer  ...   4500
+             │       1     Mouse Sem Fio  ...    300
+             │       2  Teclado Mecânico  ...    ...
+             └ <function carregar_dados at 0x0000029D0B5A87C0>
+
+  File "C:\Users\Admin Guapo\Desktop\Projeto python\BootCamp-Python-Aula07-Parte3\etl.py", line 41, in carregar_dados
+    df.to_parquet("dados.parquet", index=False)
+    │  └ <function DataFrame.to_parquet at 0x0000029D0A076520>
+    └             Produto  ...  Total
+      0    Notebook Gamer  ...   4500
+      1     Mouse Sem Fio  ...    300
+      2  Teclado Mecânico  ...    5...
+
+  File "C:\Users\Admin Guapo\desktop\projeto python\BootCamp-Python-Aula07-Parte3\.venv\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           │     │       └ {'index': False}
+           │     └ (            Produto  ...  Total
+           │       0    Notebook Gamer  ...   4500
+           │       1     Mouse Sem Fio  ...    300
+           │       2  Teclado Mecânico  ...    ...
+           └ <function DataFrame.to_parquet at 0x0000029D0A0763E0>
+  File "C:\Users\Admin Guapo\desktop\projeto python\BootCamp-Python-Aula07-Parte3\.venv\Lib\site-packages\pandas\core\frame.py", line 3113, in to_parquet
+    return to_parquet(
+           └ <function to_parquet at 0x0000029D0A2D96C0>
+  File "C:\Users\Admin Guapo\desktop\projeto python\BootCamp-Python-Aula07-Parte3\.venv\Lib\site-packages\pandas\io\parquet.py", line 476, in to_parquet
+    impl = get_engine(engine)
+           │          └ 'auto'
+           └ <function get_engine at 0x0000029D0A2BE520>
+  File "C:\Users\Admin Guapo\desktop\projeto python\BootCamp-Python-Aula07-Parte3\.venv\Lib\site-packages\pandas\io\parquet.py", line 67, in get_engine
+    raise ImportError(
+
+ImportError: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2024-10-07T23:04:29.112849-0300 ERROR Exceção capturada em 'pipeline_calcular_kpi_de_vendas_consolidado': Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet. utils_log.py
+Traceback (most recent call last):
+
+  File "C:\Users\Admin Guapo\Desktop\Projeto python\BootCamp-Python-Aula07-Parte3\pipeline.py", line 7, in <module>
+    pipeline_calcular_kpi_de_vendas_consolidado(pasta_argumento,formato_de_saida)
+    │                                           │               └ ['csv', 'parquet']
+    │                                           └ 'data'
+    └ <function pipeline_calcular_kpi_de_vendas_consolidado at 0x0000029D0B5ABB00>
+
+> File "C:\Users\Admin Guapo\Desktop\Projeto python\BootCamp-Python-Aula07-Parte3\utils_log.py", line 27, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {}
+             │     └ ('data', ['csv', 'parquet'])
+             └ <function pipeline_calcular_kpi_de_vendas_consolidado at 0x0000029D0B5A8AE0>
+
+  File "C:\Users\Admin Guapo\Desktop\Projeto python\BootCamp-Python-Aula07-Parte3\etl.py", line 50, in pipeline_calcular_kpi_de_vendas_consolidado
+    carregar_dados(data_frame_calculado, formato_de_saida)
+    │              │                     └ ['csv', 'parquet']
+    │              └             Produto  ...  Total
+    │                0    Notebook Gamer  ...   4500
+    │                1     Mouse Sem Fio  ...    300
+    │                2  Teclado Mecânico  ...    5...
+    └ <function carregar_dados at 0x0000029D0B5A8720>
+
+  File "C:\Users\Admin Guapo\Desktop\Projeto python\BootCamp-Python-Aula07-Parte3\utils_log.py", line 27, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {}
+             │     └ (            Produto  ...  Total
+             │       0    Notebook Gamer  ...   4500
+             │       1     Mouse Sem Fio  ...    300
+             │       2  Teclado Mecânico  ...    ...
+             └ <function carregar_dados at 0x0000029D0B5A87C0>
+
+  File "C:\Users\Admin Guapo\Desktop\Projeto python\BootCamp-Python-Aula07-Parte3\etl.py", line 41, in carregar_dados
+    df.to_parquet("dados.parquet", index=False)
+    │  └ <function DataFrame.to_parquet at 0x0000029D0A076520>
+    └             Produto  ...  Total
+      0    Notebook Gamer  ...   4500
+      1     Mouse Sem Fio  ...    300
+      2  Teclado Mecânico  ...    5...
+
+  File "C:\Users\Admin Guapo\desktop\projeto python\BootCamp-Python-Aula07-Parte3\.venv\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           │     │       └ {'index': False}
+           │     └ (            Produto  ...  Total
+           │       0    Notebook Gamer  ...   4500
+           │       1     Mouse Sem Fio  ...    300
+           │       2  Teclado Mecânico  ...    ...
+           └ <function DataFrame.to_parquet at 0x0000029D0A0763E0>
+  File "C:\Users\Admin Guapo\desktop\projeto python\BootCamp-Python-Aula07-Parte3\.venv\Lib\site-packages\pandas\core\frame.py", line 3113, in to_parquet
+    return to_parquet(
+           └ <function to_parquet at 0x0000029D0A2D96C0>
+  File "C:\Users\Admin Guapo\desktop\projeto python\BootCamp-Python-Aula07-Parte3\.venv\Lib\site-packages\pandas\io\parquet.py", line 476, in to_parquet
+    impl = get_engine(engine)
+           │          └ 'auto'
+           └ <function get_engine at 0x0000029D0A2BE520>
+  File "C:\Users\Admin Guapo\desktop\projeto python\BootCamp-Python-Aula07-Parte3\.venv\Lib\site-packages\pandas\io\parquet.py", line 67, in get_engine
+    raise ImportError(
+
+ImportError: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2024-10-07T23:21:08.682488-0300 INFO Função 'soma' executada em 0.0000 segundos time_decorator.py
+2024-10-07T23:21:08.685488-0300 INFO Função 'soma' executada em 0.0000 segundos time_decorator.py
+
+2024-10-07T23:25:48.684252-0300 INFO Função 'soma' executada em 2.0011 segundos time_decorator.py
+2024-10-07T23:25:50.688203-0300 INFO Função 'soma' executada em 2.0014 segundos time_decorator.py
